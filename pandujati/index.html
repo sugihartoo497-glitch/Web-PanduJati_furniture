@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pandu Jati Furniture - Furniture Jati Berkualitas Jepara</title>
+    <meta name="description" content="Pandu Jati Furniture - Produsen mebel kayu jati Perhutani berkualitas di Jepara. Melayani pesanan siap kirim & furniture custom seluruh Indonesia.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        teak: {
+                            50: '#fdfbf7', 100: '#f7f2ea', 200: '#ede0cd', 300: '#dec6a6',
+                            400: '#cca578', 500: '#b8854f', 600: '#9e6d3e', 700: '#7f5433',
+                            800: '#68452d', 900: '#553927', 950: '#2f1e14',
+                        },
+                        amberwood: { 500: '#d97706', 600: '#b45309', 700: '#92400e' }
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .wood-texture {
+            background-color: #2f1e14;
+            background-image: radial-gradient(rgba(218, 165, 32, 0.08) 1px, transparent 0);
+            background-size: 24px 24px;
+        }
+    </style>
+</head>
+<body class="bg-teak-50 text-teak-950 font-sans antialiased flex flex-col min-h-screen">
+
+<!-- Navbar Container -->
+<div id="main-header"></div>
+
+<main class="flex-grow">
+    <!-- Hero Section -->
+    <section class="relative bg-teak-950 text-white overflow-hidden py-20 lg:py-28 wood-texture">
+        <div class="absolute inset-0 bg-gradient-to-r from-teak-950 via-teak-950/80 to-transparent z-10"></div>
+        <div class="absolute -right-20 top-0 bottom-0 w-2/3 hidden lg:block opacity-45">
+            <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1600&q=80" alt="Furniture Kayu Jati" class="w-full h-full object-cover">
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
+            <div class="max-w-2xl space-y-6">
+                <div class="inline-flex items-center gap-2 bg-amberwood-500/20 border border-amberwood-500/40 text-amberwood-400 px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wide">
+                    <i data-lucide="award" class="w-4 h-4"></i> Asli Jepara • Kayu Jati Perhutani Pilihan
+                </div>
+
+                <h1 class="font-serif text-3xl sm:text-5xl lg:text-6xl font-bold leading-tight text-white tracking-tight">
+                    Furniture Jati Berkualitas untuk Rumah Impian Anda
+                </h1>
+
+                <p class="text-sm sm:text-base text-teak-200/90 leading-relaxed font-light">
+                    Temukan furniture kayu jati berkualitas dari Pandu Jati Furniture. Pilih produk siap pesan atau buat furniture custom sesuai kebutuhan Anda.
+                </p>
+
+                <div class="flex flex-wrap items-center gap-4 pt-2">
+                    <a href="katalog.html" class="bg-amberwood-600 hover:bg-amberwood-500 text-white font-semibold px-7 py-3.5 rounded-full text-sm transition shadow-lg shadow-amberwood-700/30 flex items-center gap-2">
+                        <i data-lucide="layout-grid" class="w-4 h-4"></i> Lihat Katalog
+                    </a>
+                    <a href="pesanan.html" class="bg-white/10 hover:bg-white/20 text-white border border-white/30 font-semibold px-7 py-3.5 rounded-full text-sm transition backdrop-blur-sm flex items-center gap-2">
+                        <i data-lucide="shopping-bag" class="w-4 h-4"></i> Pesan Sekarang
+                    </a>
+                </div>
+
+                <!-- Trust Bar Mini -->
+                <div class="pt-8 border-t border-teak-800/80 grid grid-cols-3 gap-4 text-xs text-teak-300">
+                    <div>
+                        <span class="block text-xl font-bold text-amberwood-400 font-serif">100%</span>
+                        <span>Jati Solid SVLK</span>
+                    </div>
+                    <div>
+                        <span class="block text-xl font-bold text-amberwood-400 font-serif">8 Tahap</span>
+                        <span>Tracking Real-Time</span>
+                    </div>
+                    <div>
+                        <span class="block text-xl font-bold text-amberwood-400 font-serif">Se-Nusantara</span>
+                        <span>Kargo Truk Jepara</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Section -->
+    <section class="py-12 bg-white border-b border-teak-200/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-6 text-center">
+                <div class="p-4 rounded-2xl hover:bg-teak-50 transition">
+                    <div class="w-12 h-12 mx-auto rounded-2xl bg-amber-50 text-amberwood-600 flex items-center justify-center mb-3">
+                        <i data-lucide="tree-pine" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="font-bold text-sm text-teak-950 mb-1">Kayu Berkualitas</h4>
+                    <p class="text-xs text-teak-600">Jati solid TPK oven kering anti rayap</p>
+                </div>
+                <div class="p-4 rounded-2xl hover:bg-teak-50 transition">
+                    <div class="w-12 h-12 mx-auto rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center mb-3">
+                        <i data-lucide="sparkles" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="font-bold text-sm text-teak-950 mb-1">Bisa Custom</h4>
+                    <p class="text-xs text-teak-600">Model, ukuran, &amp; warna finishing</p>
+                </div>
+                <div class="p-4 rounded-2xl hover:bg-teak-50 transition">
+                    <div class="w-12 h-12 mx-auto rounded-2xl bg-purple-50 text-purple-600 flex items-center justify-center mb-3">
+                        <i data-lucide="hammer" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="font-bold text-sm text-teak-950 mb-1">Pengerjaan Profesional</h4>
+                    <p class="text-xs text-teak-600">Konstruksi purus-pasak presisi</p>
+                </div>
+                <div class="p-4 rounded-2xl hover:bg-teak-50 transition">
+                    <div class="w-12 h-12 mx-auto rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-3">
+                        <i data-lucide="truck" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="font-bold text-sm text-teak-950 mb-1">Pengiriman Aman</h4>
+                    <p class="text-xs text-teak-600">Pintu ke pintu + opsi packing peti</p>
+                </div>
+                <div class="p-4 rounded-2xl hover:bg-teak-50 transition col-span-2 md:col-span-1">
+                    <div class="w-12 h-12 mx-auto rounded-2xl bg-rose-50 text-rose-600 flex items-center justify-center mb-3">
+                        <i data-lucide="shield-check" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="font-bold text-sm text-teak-950 mb-1">Pelayanan Terpercaya</h4>
+                    <p class="text-xs text-teak-600">Invoice resmi &amp; nomor resi ekspedisi</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kategori Grid Section -->
+    <section class="py-16 bg-teak-100/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-xl mx-auto mb-10">
+                <span class="text-xs font-bold text-amberwood-600 uppercase tracking-widest">Koleksi Pilihan</span>
+                <h2 class="font-serif text-2xl sm:text-3xl font-bold text-teak-950 mt-1">Kategori Produk Furniture</h2>
+            </div>
+            <!-- Diberi isi dinamis oleh home.js -->
+            <div id="categories-grid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4"></div>
+        </div>
+    </section>
+
+    <!-- Section Produk Unggulan -->
+    <section class="py-16 lg:py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-12 gap-4">
+                <div>
+                    <span class="text-xs font-bold text-amberwood-600 uppercase tracking-widest">Katalog Terpopuler</span>
+                    <h2 class="font-serif text-2xl sm:text-4xl font-bold text-teak-950 mt-1">Produk Unggulan Kayu Jati</h2>
+                </div>
+                <a href="katalog.html" class="text-xs sm:text-sm font-semibold text-teak-700 hover:text-amberwood-600 flex items-center gap-1 transition">
+                    Lihat Semua Koleksi <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
+            </div>
+
+            <!-- Diberi isi dinamis oleh home.js -->
+            <div id="featured-products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+        </div>
+    </section>
+
+    <!-- Spotlight Custom Furniture Banner -->
+    <section class="py-16 bg-gradient-to-br from-teak-900 to-teak-950 text-white relative overflow-hidden wood-texture">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+                <div class="space-y-6">
+                    <div class="inline-flex items-center gap-2 bg-amberwood-500/20 text-amberwood-400 px-3 py-1 rounded-full text-xs font-semibold">
+                        <i data-lucide="sparkles" class="w-4 h-4"></i> Layanan Custom Mebel Jepara
+                    </div>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold leading-tight">
+                        Punya Desain Sendiri? <br>Kami Wujudkan dengan Kayu Jati Pilihan
+                    </h2>
+                    <p class="text-xs sm:text-sm text-teak-300 leading-relaxed font-light">
+                        Kirimkan sketsa, denah ruangan, atau foto inspirasi dari Pinterest/Instagram. Tim pengrajin spesialis kami akan menghitung kebutuhan kayu, estimasi biaya yang transparan, dan membuat gambar teknis sesuai keinginan Anda.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="custom.html" class="bg-amberwood-600 hover:bg-amberwood-500 text-white font-semibold px-6 py-3 rounded-full text-xs sm:text-sm transition flex items-center gap-2 shadow-lg">
+                            <i data-lucide="file-text" class="w-4 h-4"></i> Isi Form Request Custom
+                        </a>
+                        <a href="https://wa.me/6285191235955?text=Halo%20Pandu%20Jati,%20saya%20mau%20konsultasi%20desain%20furniture%20custom" target="_blank" class="bg-white/10 hover:bg-white/20 text-white border border-white/20 font-semibold px-6 py-3 rounded-full text-xs sm:text-sm transition flex items-center gap-2">
+                            <i data-lucide="message-circle" class="w-4 h-4 text-emerald-400"></i> Diskusi via WhatsApp
+                        </a>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="rounded-3xl overflow-hidden border-2 border-teak-700 shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1540518614846-7ede433c4570?auto=format&fit=crop&w=800&q=80" alt="Pengrajin Jepara" class="w-full h-80 object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cek Pesanan Quick Callout -->
+    <section class="py-12 bg-teak-100">
+        <div class="max-w-4xl mx-auto px-4 text-center space-y-4">
+            <h3 class="font-serif text-xl sm:text-2xl font-bold text-teak-950">Sudah Memiliki Pesanan di Pandu Jati?</h3>
+            <p class="text-xs sm:text-sm text-teak-600">Lacak perkembangan produksi mebel Anda mulai dari pemilihan bahan kayu, perakitan, finishing, hingga pengiriman truk.</p>
+            <form action="cek-pesanan.html" method="GET" class="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto pt-2">
+                <input type="text" name="id" placeholder="Masukkan Nomor Pesanan (Contoh: PJF-20261008-0001)" required class="flex-grow px-5 py-3.5 rounded-full border border-teak-300 focus:outline-none focus:ring-2 focus:ring-amberwood-500 text-xs sm:text-sm shadow-inner">
+                <button type="submit" class="bg-teak-900 hover:bg-teak-800 text-white font-semibold px-7 py-3.5 rounded-full text-xs sm:text-sm transition flex items-center justify-center gap-2 shadow">
+                    <i data-lucide="search" class="w-4 h-4 text-amberwood-400"></i> Cek Pesanan
+                </button>
+            </form>
+        </div>
+    </section>
+</main>
+
+<!-- Footer Container -->
+<div id="main-footer"></div>
+
+<!-- JavaScript Dependencies -->
+<script src="assets/js/api.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/home.js"></script>
+</body>
+</html>

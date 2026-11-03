@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesan Custom Furniture Kayu Jati - Pandu Jati Furniture</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        teak: {
+                            50: '#fdfbf7', 100: '#f7f2ea', 200: '#ede0cd', 300: '#dec6a6',
+                            400: '#cca578', 500: '#b8854f', 600: '#9e6d3e', 700: '#7f5433',
+                            800: '#68452d', 900: '#553927', 950: '#2f1e14',
+                        },
+                        amberwood: { 500: '#d97706', 600: '#b45309', 700: '#92400e' }
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .wood-texture {
+            background-color: #2f1e14;
+            background-image: radial-gradient(rgba(218, 165, 32, 0.08) 1px, transparent 0);
+            background-size: 24px 24px;
+        }
+    </style>
+</head>
+<body class="bg-teak-50 text-teak-950 font-sans antialiased flex flex-col min-h-screen">
+
+<div id="main-header"></div>
+
+<main class="flex-grow">
+    <!-- Header Banner -->
+    <div class="bg-teak-950 text-white py-12 wood-texture">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-3">
+            <span class="text-xs font-bold text-amberwood-400 uppercase tracking-widest">Layanan Rancang Bangun Mebel</span>
+            <h1 class="font-serif text-3xl sm:text-4xl font-bold">Pesan Furniture Custom Jepara</h1>
+            <p class="text-xs sm:text-sm text-teak-300 max-w-xl mx-auto font-light">
+                Sesuaikan ukuran mebel dengan luas ruangan rumah, apartemen, cafe, atau kantor Anda. Kami hitungkan estimasi biaya secara transparan.
+            </p>
+        </div>
+    </div>
+
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <!-- Error Box Alert -->
+        <div id="custom-error-box" class="hidden mb-6 p-4 rounded-2xl bg-rose-50 border border-rose-200 text-rose-800 text-xs sm:text-sm"></div>
+
+        <!-- Success Container -->
+        <div id="custom-success-container" class="hidden"></div>
+
+        <!-- Form Container -->
+        <div id="custom-form-container">
+            <form id="custom-form" class="bg-white rounded-3xl border border-teak-200/80 p-6 sm:p-10 shadow-sm space-y-8">
+                <!-- Section 1: Kontak -->
+                <div>
+                    <h3 class="font-serif font-bold text-lg text-teak-950 border-b border-teak-100 pb-3 mb-4 flex items-center gap-2">
+                        <i data-lucide="user" class="w-5 h-5 text-amberwood-600"></i> 1. Kontak Pemesan
+                    </h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+                        <div>
+                            <label class="block font-semibold text-teak-800 mb-1.5">Nama Lengkap *</label>
+                            <input type="text" name="customer_name" required placeholder="Contoh: Ibu Rina Melati" class="w-full px-4 py-3 rounded-2xl border border-teak-200 focus:outline-none focus:ring-2 focus:ring-amberwood-500">
+                        </div>
+                        <div>
+                            <label class="block font-semibold text-teak-800 mb-1.5">Nomor WhatsApp Aktif *</label>
+                            <input type="tel" name="customer_phone" required placeholder="Contoh: 081234567890" class="w-full px-4 py-3 rounded-2xl border border-teak-200 focus:outline-none focus:ring-2 focus:ring-amberwood-500">
+                        </div>
+                        <div class="sm:col-span-2">
+                            <label class="block font-semibold text-teak-800 mb-1.5">Alamat Email (Opsional)</label>
+                            <input type="email" name="customer_email" placeholder="rina@gmail.com" class="w-full px-4 py-3 rounded-2xl border border-teak-200 focus:outline-none focus:ring-2 focus:ring-amberwood-500">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 2: Spesifikasi Custom -->
+                <div>
+                    <h3 class="font-serif font-bold text-lg text-teak-950 border-b border-teak-100 pb-3 mb-4 flex items-center gap-2">
+                        <i data-lucide="compass" class="w-5 h-5 text-amberwood-600"></i> 2. Rincian Desain &amp; Kebutuhan Mebel
+                    </h3>
+                    <div class="space-y-4 text-xs">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block font-semibold text-teak-800 mb-1.5">Jenis Furniture yang Ingin Dibuat *</label>
+                                <input type="text" name="furniture_type" required placeholder="Contoh: Meja Rapat 12 Kursi / Kitchen Set L / Dipan Laci" class="w-full px-4 py-3 rounded-2xl border border-teak-200 focus:outline-none focus:ring-2 focus:ring-amberwood-500">
+                            </div>
+                            <div>
+                                <label class="block font-semibold text-teak-800 mb-1.5">Estimasi Ukuran (Panjang x Lebar x Tinggi)</label>
+                                <input type="text" name="dimensions" placeholder="Contoh: P 240 x L 110 x T 75 cm" class="w-full px-4 py-3 rounded-2xl border border-teak-200 focus:outline-none focus:ring-2 focus:ring-amberwood-500">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block font-semibold text-teak-800 mb-1.5">Pilihan Jenis Kayu</label>
+                                <select name="wood_type" class="w-full px-4 py-3 rounded-2xl border border-teak-200 focus:outline-none focus:ring-2 focus:ring-amberwood-500 bg-white">
+                                    <option value="Kayu Jati Solid TPK Perhutani Grade A">Kayu Jati Solid TPK Perhutani Grade A (Sangat Direkomendasikan)</option>
+                                    <option value="Kayu Jati Rakyat Kering Oven">Kayu Jati Rakyat Kering Oven</option>
+                                    <option value="Kayu Mahoni Oven Grade Ekspor">Kayu Mahoni Oven (Khusus Finishing Duco Putih/Warna)</option>
+                                    <option value="Kayu Trembesi / Suar Wood Solid">Kayu Trembesi / Suar Solid (Meja Tebal Utuh)</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block font-semibold text-teak-800 mb-1.5">Pilihan Warna &amp; Finishing</label>
+                                <select name="finishing" class="w-full px-4 py-3 rounded-2xl border border-teak-200 focus:outline-none focus:ring-2 focus:ring-amberwood-500 bg-white">
+                                    <option value="Natural Teak Doff">Natural Teak Doff (Serat Kayu Asli Terlihat)</option>
+                                    <option value="Walnut Brown Matte">Walnut Brown Matte (Cokelat Hangat)</option>
+                                    <option value="Salak Brown Gloss">Salak Brown Gloss (Cokelat Tua Mengkilap)</option>
+                                    <option value="Bleaching Modern Light Teak">Bleaching Modern Light Teak (Krem Natural)</option>
+                                    <option value="Duco Putih / Hitam">Cat Duco Mobil (Putih / Hitam Mulus)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block font-semibold text-teak-800 mb-1.5">Kisaran Anggaran / Budget Anda</label>
+                                <select name="budget_range" class="w-full px-4 py-3 rounded-2xl border border-teak-200 focus:outline-none focus:ring-2 focus:ring-amberwood-500 bg-white">
+                                    <option value="Dibawah Rp 5 Juta">Dibawah Rp 5 Juta</option>
+                                    <option value="Rp 5 Juta - Rp 10 Juta">Rp 5 Juta - Rp 10 Juta</option>
+                                    <option value="Rp 10 Juta - Rp 25 Juta">Rp 10 Juta - Rp 25 Juta</option>
+                                    <option value="Diatas Rp 25 Juta">Diatas Rp 25 Juta</option>
+                                    <option value="Fleksibel sesuai kualitas kayu">Fleksibel sesuai kualitas kayu terbaik</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block font-semibold text-teak-800 mb-1.5">Link Gambar Referensi Desain (Pinterest / Google Drive)</label>
+                                <input type="url" name="reference_image" placeholder="https://pinterest.com/pin/..." class="w-full px-4 py-3 rounded-2xl border border-teak-200 focus:outline-none focus:ring-2 focus:ring-amberwood-500">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block font-semibold text-teak-800 mb-1.5">Deskripsi Lengkap Kebutuhan Mebel *</label>
+                            <textarea name="description" required rows="4" placeholder="Jelaskan kebutuhan Anda secara detail: jumlah laci, model kaki meja, ketebalan papan kayu, dan detail khusus lainnya..." class="w-full px-4 py-3 rounded-2xl border border-teak-200 focus:outline-none focus:ring-2 focus:ring-amberwood-500"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pt-4 border-t border-teak-100">
+                    <button type="submit" class="w-full bg-teak-900 hover:bg-amberwood-600 text-white font-bold py-4 rounded-2xl text-center transition flex items-center justify-center gap-2 shadow-lg text-sm sm:text-base">
+                        <i data-lucide="send" class="w-5 h-5 text-amberwood-400"></i> Kirim Request Custom &amp; Buat Tiket Konsultasi
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
+
+<div id="main-footer"></div>
+
+<script src="assets/js/api.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/custom.js"></script>
+</body>
+</html>

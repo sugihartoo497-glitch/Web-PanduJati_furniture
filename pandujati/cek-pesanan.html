@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cek & Lacak Status Pesanan - Pandu Jati Furniture</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        teak: {
+                            50: '#fdfbf7', 100: '#f7f2ea', 200: '#ede0cd', 300: '#dec6a6',
+                            400: '#cca578', 500: '#b8854f', 600: '#9e6d3e', 700: '#7f5433',
+                            800: '#68452d', 900: '#553927', 950: '#2f1e14',
+                        },
+                        amberwood: { 500: '#d97706', 600: '#b45309', 700: '#92400e' }
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .wood-texture {
+            background-color: #2f1e14;
+            background-image: radial-gradient(rgba(218, 165, 32, 0.08) 1px, transparent 0);
+            background-size: 24px 24px;
+        }
+    </style>
+</head>
+<body class="bg-teak-50 text-teak-950 font-sans antialiased flex flex-col min-h-screen">
+
+<div id="main-header"></div>
+
+<main class="flex-grow">
+    <!-- Header Banner -->
+    <div class="bg-teak-950 text-white py-12 wood-texture">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-3">
+            <span class="text-xs font-bold text-amberwood-400 uppercase tracking-widest">Sistem Transparansi Produksi</span>
+            <h1 class="font-serif text-3xl sm:text-4xl font-bold">Lacak Status Pesanan Mebel</h1>
+            <p class="text-xs sm:text-sm text-teak-300 max-w-xl mx-auto font-light">
+                Pantau setiap langkah pengerjaan pesanan Anda dari bengkel kayu Jepara hingga sampai di depan rumah Anda.
+            </p>
+
+            <!-- Search Form -->
+            <form id="tracking-search-form" class="max-w-xl mx-auto pt-4 flex flex-col sm:flex-row gap-2">
+                <input type="text" id="order-input" placeholder="Masukkan nomor pesanan (Contoh: PJF-20261008-0001)" required class="flex-grow px-5 py-3 rounded-full text-teak-950 text-xs sm:text-sm border border-amberwood-400/50 focus:outline-none focus:ring-2 focus:ring-amberwood-400 bg-white">
+                <button type="submit" class="bg-amberwood-600 hover:bg-amberwood-500 text-white font-semibold px-7 py-3 rounded-full text-xs sm:text-sm transition flex items-center justify-center gap-2 shadow-lg">
+                    <i data-lucide="search" class="w-4 h-4"></i> Cek Pesanan
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <!-- Result Container -->
+        <div id="tracking-result-container">
+            <div class="bg-white rounded-3xl border border-teak-200/80 p-8 sm:p-12 text-center space-y-6 max-w-lg mx-auto shadow-sm">
+                <div class="w-16 h-16 bg-teak-100 text-teak-600 rounded-full flex items-center justify-center mx-auto">
+                    <i data-lucide="search" class="w-8 h-8 text-amberwood-600"></i>
+                </div>
+                <div class="space-y-2">
+                    <h3 class="font-serif text-xl font-bold text-teak-950">Masukkan Nomor Pesanan</h3>
+                    <p class="text-xs text-teak-600 leading-relaxed">
+                        Silakan ketik nomor pesanan unik yang Anda peroleh saat checkout (contoh: <strong>PJF-20261008-0001</strong>).
+                    </p>
+                </div>
+                <div class="pt-2">
+                    <a href="cek-pesanan.html?id=PJF-20261008-0001" class="text-xs text-amberwood-600 hover:underline font-semibold flex items-center justify-center gap-1">
+                        <span>Coba Lihat Pesanan Demo (PJF-20261008-0001)</span> <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<div id="main-footer"></div>
+
+<script src="assets/js/api.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/cek-pesanan.js"></script>
+</body>
+</html>

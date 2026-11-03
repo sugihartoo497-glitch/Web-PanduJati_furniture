@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Katalog Produk Furniture Jati - Pandu Jati Furniture</title>
+    <meta name="description" content="Katalog mebel kayu jati Jepara: meja makan, kursi santai, dipan tempat tidur, lemari baju, dan kitchen set.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        teak: {
+                            50: '#fdfbf7', 100: '#f7f2ea', 200: '#ede0cd', 300: '#dec6a6',
+                            400: '#cca578', 500: '#b8854f', 600: '#9e6d3e', 700: '#7f5433',
+                            800: '#68452d', 900: '#553927', 950: '#2f1e14',
+                        },
+                        amberwood: { 500: '#d97706', 600: '#b45309', 700: '#92400e' }
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .wood-texture {
+            background-color: #2f1e14;
+            background-image: radial-gradient(rgba(218, 165, 32, 0.08) 1px, transparent 0);
+            background-size: 24px 24px;
+        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-teak-50 text-teak-950 font-sans antialiased flex flex-col min-h-screen">
+
+<div id="main-header"></div>
+
+<main class="flex-grow">
+    <!-- Header Katalog -->
+    <div class="bg-teak-950 text-white py-12 wood-texture">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-3">
+            <span class="text-xs font-bold text-amberwood-400 uppercase tracking-widest">Katalog Resmi Jepara</span>
+            <h1 class="font-serif text-3xl sm:text-4xl font-bold">Koleksi Mebel Kayu Jati Pilihan</h1>
+            <p class="text-xs sm:text-sm text-teak-300 max-w-xl mx-auto font-light">
+                Jelajahi berbagai pilihan meja, kursi, dipan, lemari, hingga kitchen set berkualitas dari pengrajin Jepara.
+            </p>
+        </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <!-- Filter & Search Bar -->
+        <div class="bg-white p-5 rounded-3xl border border-teak-200/80 shadow-sm mb-8 space-y-4">
+            <form id="filter-form" class="grid grid-cols-1 md:grid-cols-12 gap-3 items-center">
+                <!-- Search Input -->
+                <div class="md:col-span-5 relative">
+                    <i data-lucide="search" class="w-4 h-4 text-teak-400 absolute left-4 top-1/2 -translate-y-1/2"></i>
+                    <input type="text" id="search-input" placeholder="Cari mebel jati (contoh: meja makan, dipan, lemari)..." class="w-full pl-10 pr-4 py-2.5 rounded-2xl border border-teak-200 focus:outline-none focus:ring-2 focus:ring-amberwood-500 text-xs">
+                </div>
+
+                <!-- Kategori Select -->
+                <div class="md:col-span-4">
+                    <select id="category-select" class="w-full px-4 py-2.5 rounded-2xl border border-teak-200 focus:outline-none focus:ring-2 focus:ring-amberwood-500 text-xs bg-white">
+                        <option value="all">Semua Kategori</option>
+                    </select>
+                </div>
+
+                <!-- Sorting Select -->
+                <div class="md:col-span-2">
+                    <select id="sort-select" class="w-full px-4 py-2.5 rounded-2xl border border-teak-200 focus:outline-none focus:ring-2 focus:ring-amberwood-500 text-xs bg-white">
+                        <option value="terbaru">Terbaru</option>
+                        <option value="termurah">Harga Termurah</option>
+                        <option value="termahal">Harga Termahal</option>
+                    </select>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="md:col-span-1">
+                    <button type="submit" class="w-full bg-teak-900 hover:bg-amberwood-600 text-white py-2.5 rounded-2xl text-xs font-semibold transition flex items-center justify-center gap-1 shadow">
+                        <i data-lucide="filter" class="w-3.5 h-3.5"></i> Filter
+                    </button>
+                </div>
+            </form>
+
+            <!-- Category Pills Container -->
+            <div id="category-pills" class="flex items-center gap-2 overflow-x-auto pb-1 text-xs no-scrollbar pt-2 border-t border-teak-100"></div>
+        </div>
+
+        <!-- Result Info -->
+        <div class="mb-4 flex justify-between items-center text-xs text-teak-600">
+            <span>Menampilkan <strong id="total-count">0</strong> produk mebel</span>
+        </div>
+
+        <!-- Grid Produk -->
+        <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"></div>
+    </div>
+</main>
+
+<div id="main-footer"></div>
+
+<script src="assets/js/api.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/katalog.js"></script>
+</body>
+</html>
