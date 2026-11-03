@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Produk - Pandu Jati Furniture</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        teak: {
+                            50: '#fdfbf7', 100: '#f7f2ea', 200: '#ede0cd', 300: '#dec6a6',
+                            400: '#cca578', 500: '#b8854f', 600: '#9e6d3e', 700: '#7f5433',
+                            800: '#68452d', 900: '#553927', 950: '#2f1e14',
+                        },
+                        amberwood: { 500: '#d97706', 600: '#b45309', 700: '#92400e' }
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-teak-50 text-teak-950 font-sans antialiased flex flex-col min-h-screen">
+
+<div id="main-header"></div>
+
+<main class="flex-grow">
+    <!-- Breadcrumb -->
+    <div class="bg-teak-100/60 py-3 border-b border-teak-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-xs text-teak-600 flex items-center gap-2">
+            <a href="index.html" class="hover:text-amberwood-600">Beranda</a>
+            <span>/</span>
+            <a href="katalog.html" class="hover:text-amberwood-600">Katalog</a>
+            <span>/</span>
+            <span id="breadcrumb-product-name" class="text-teak-900 font-semibold line-clamp-1">Memuat produk...</span>
+        </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <!-- Detail Container -->
+        <div id="product-detail-container" class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+            <div class="col-span-full py-20 text-center text-teak-500">
+                <i data-lucide="loader-2" class="w-8 h-8 animate-spin mx-auto mb-2 text-amberwood-600"></i>
+                <p class="text-xs">Memuat detail mebel...</p>
+            </div>
+        </div>
+
+        <!-- Related Products Section -->
+        <div id="related-section" class="hidden mt-16 pt-10 border-t border-teak-200">
+            <h3 class="font-serif font-bold text-xl text-teak-950 mb-6">Produk Terkait Lainnya</h3>
+            <div id="related-products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"></div>
+        </div>
+    </div>
+</main>
+
+<div id="main-footer"></div>
+
+<script src="assets/js/api.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/produk.js"></script>
+</body>
+</html>

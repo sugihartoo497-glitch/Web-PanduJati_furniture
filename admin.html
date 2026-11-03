@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Admin - Pandu Jati Furniture</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-stone-50 text-stone-900 font-sans min-h-screen">
+
+<!-- 1. LOGIN SCREEN -->
+<div id="admin-login-section" class="flex items-center justify-center min-h-screen p-4">
+    <div class="max-w-md w-full bg-white rounded-3xl border border-stone-200 p-8 shadow-xl space-y-6">
+        <div class="text-center space-y-2">
+            <div class="w-12 h-12 bg-amber-800 text-white rounded-2xl flex items-center justify-center mx-auto shadow-md">
+                <i data-lucide="shield-check" class="w-6 h-6"></i>
+            </div>
+            <h1 class="text-xl font-bold text-stone-950 font-serif">Admin Pandu Jati</h1>
+            <p class="text-xs text-stone-500">Masuk untuk mengelola katalog produk, pesanan, dan status produksi mebel.</p>
+        </div>
+
+        <div id="login-error" class="hidden p-3 rounded-xl bg-rose-50 border border-rose-200 text-rose-700 text-xs"></div>
+
+        <form id="admin-login-form" class="space-y-4 text-xs">
+            <div>
+                <label class="block font-semibold text-stone-700 mb-1">Email Administrator</label>
+                <input type="email" name="email" value="admin@pandujati.com" required class="w-full px-4 py-3 rounded-xl border border-stone-300 focus:outline-none focus:ring-2 focus:ring-amber-600">
+            </div>
+            <div>
+                <label class="block font-semibold text-stone-700 mb-1">Password</label>
+                <input type="password" name="password" value="admin123" required class="w-full px-4 py-3 rounded-xl border border-stone-300 focus:outline-none focus:ring-2 focus:ring-amber-600">
+            </div>
+            <button type="submit" class="w-full bg-amber-800 hover:bg-amber-900 text-white font-bold py-3.5 rounded-xl transition text-xs shadow">
+                Masuk ke Dashboard
+            </button>
+        </form>
+
+        <div class="pt-4 border-t border-stone-100 text-center">
+            <a href="index.html" class="text-xs text-stone-500 hover:text-amber-800 flex items-center justify-center gap-1">
+                <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i> Kembali ke Website
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- 2. DASHBOARD SCREEN (Visible when logged in) -->
+<div id="admin-dashboard-section" class="hidden">
+    <!-- Top Header -->
+    <header class="bg-stone-900 text-white px-4 sm:px-8 py-4 border-b border-stone-800 flex justify-between items-center sticky top-0 z-30">
+        <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-xl bg-amber-600 flex items-center justify-center font-bold">
+                <i data-lucide="hammer" class="w-5 h-5 text-white"></i>
+            </div>
+            <div>
+                <h1 class="font-bold text-sm leading-tight">Pandu Jati Furniture</h1>
+                <span class="text-[10px] text-amber-400">Back-Office Admin Panel</span>
+            </div>
+        </div>
+        <div class="flex items-center gap-4 text-xs">
+            <a href="index.html" target="_blank" class="hover:text-amber-400 flex items-center gap-1 text-stone-300">
+                <i data-lucide="external-link" class="w-3.5 h-3.5"></i> Buka Website
+            </a>
+            <button id="logout-btn" class="bg-rose-600 hover:bg-rose-700 text-white px-3 py-1.5 rounded-lg flex items-center gap-1 transition">
+                <i data-lucide="log-out" class="w-3.5 h-3.5"></i> Logout
+            </button>
+        </div>
+    </header>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+        <!-- KPI Stats Cards -->
+        <div class="grid grid-cols-2 lg:grid-cols-5 gap-4">
+            <div class="bg-white p-5 rounded-2xl border border-stone-200 shadow-sm">
+                <span class="text-[10px] uppercase tracking-wider text-stone-500 font-bold block">Total Pesanan</span>
+                <span id="stat-total-orders" class="text-2xl font-bold text-stone-900">0</span>
+            </div>
+            <div class="bg-white p-5 rounded-2xl border border-stone-200 shadow-sm">
+                <span class="text-[10px] uppercase tracking-wider text-amber-600 font-bold block">Pesanan Baru (Pending)</span>
+                <span id="stat-new-orders" class="text-2xl font-bold text-amber-600">0</span>
+            </div>
+            <div class="bg-white p-5 rounded-2xl border border-stone-200 shadow-sm">
+                <span class="text-[10px] uppercase tracking-wider text-orange-600 font-bold block">Dalam Produksi</span>
+                <span id="stat-prod-orders" class="text-2xl font-bold text-orange-600">0</span>
+            </div>
+            <div class="bg-white p-5 rounded-2xl border border-stone-200 shadow-sm">
+                <span class="text-[10px] uppercase tracking-wider text-emerald-600 font-bold block">Pesanan Selesai</span>
+                <span id="stat-completed-orders" class="text-2xl font-bold text-emerald-600">0</span>
+            </div>
+            <div class="bg-white p-5 rounded-2xl border border-stone-200 shadow-sm col-span-2 lg:col-span-1">
+                <span class="text-[10px] uppercase tracking-wider text-stone-500 font-bold block">Total Pendapatan</span>
+                <span id="stat-revenue" class="text-lg font-bold text-emerald-700">Rp 0</span>
+            </div>
+        </div>
+
+        <!-- Tab Navigation Buttons -->
+        <div class="flex gap-2 border-b border-stone-200 pb-3 text-xs font-bold">
+            <button type="button" data-tab="orders" class="admin-tab-btn px-5 py-2.5 rounded-xl transition bg-amber-800 text-white font-bold">
+                📦 Kelola Pesanan (<span id="tab-orders-count">0</span>)
+            </button>
+            <button type="button" data-tab="products" class="admin-tab-btn px-5 py-2.5 rounded-xl transition bg-white text-stone-700 hover:bg-stone-100 border border-stone-200">
+                🪵 Kelola Produk (<span id="tab-products-count">0</span>)
+            </button>
+            <button type="button" data-tab="custom" class="admin-tab-btn px-5 py-2.5 rounded-xl transition bg-white text-stone-700 hover:bg-stone-100 border border-stone-200">
+                ✨ Request Custom (<span id="tab-custom-count">0</span>)
+            </button>
+        </div>
+
+        <!-- TAB 1: KELOLA PESANAN -->
+        <div id="tab-orders-content" class="bg-white rounded-3xl border border-stone-200 overflow-hidden shadow-sm">
+            <div class="p-6 border-b border-stone-100 flex justify-between items-center">
+                <h3 class="font-bold text-base text-stone-900">Daftar Semua Pesanan Pelanggan</h3>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left text-xs">
+                    <thead class="bg-stone-100 text-stone-600 uppercase text-[10px] tracking-wider border-b border-stone-200">
+                        <tr>
+                            <th class="p-4">Order ID &amp; Tanggal</th>
+                            <th class="p-4">Pelanggan</th>
+                            <th class="p-4">Total &amp; Bayar</th>
+                            <th class="p-4">Status Produksi</th>
+                            <th class="p-4">Resi / Ekspedisi</th>
+                            <th class="p-4 text-center">Aksi / Ubah Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="orders-table-body" class="divide-y divide-stone-100">
+                        <tr>
+                            <td colspan="6" class="p-8 text-center text-stone-400">Memuat data pesanan...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- TAB 2: KELOLA PRODUK -->
+        <div id="tab-products-content" class="hidden grid grid-cols-1 lg:grid-cols-12 gap-8">
+            <!-- Form Tambah Produk (4 cols) -->
+            <div class="lg:col-span-4 bg-white p-6 rounded-3xl border border-stone-200 shadow-sm space-y-4">
+                <h3 class="font-bold text-sm text-stone-900 border-b border-stone-100 pb-2">Tambah Produk Baru</h3>
+                <form id="add-product-form" class="space-y-3 text-xs">
+                    <div>
+                        <label class="block font-semibold text-stone-700 mb-1">Nama Produk Mebel *</label>
+                        <input type="text" name="name" required placeholder="Contoh: Meja Makan Jati Minimalis" class="w-full px-3 py-2 rounded-xl border border-stone-200">
+                    </div>
+                    <div>
+                        <label class="block font-semibold text-stone-700 mb-1">Kategori *</label>
+                        <select name="category_id" class="w-full px-3 py-2 rounded-xl border border-stone-200 bg-white">
+                            <option value="1">Meja</option>
+                            <option value="2">Kursi</option>
+                            <option value="3">Lemari</option>
+                            <option value="4">Dipan</option>
+                            <option value="5">Rak</option>
+                            <option value="6">Kitchen Set</option>
+                            <option value="7">Outdoor Furniture</option>
+                        </select>
+                    </div>
+                    <div class="grid grid-cols-2 gap-3">
+                        <div>
+                            <label class="block font-semibold text-stone-700 mb-1">Harga (Rp) *</label>
+                            <input type="number" name="price" required placeholder="8500000" class="w-full px-3 py-2 rounded-xl border border-stone-200">
+                        </div>
+                        <div>
+                            <label class="block font-semibold text-stone-700 mb-1">Stok *</label>
+                            <input type="number" name="stock" value="5" required class="w-full px-3 py-2 rounded-xl border border-stone-200">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block font-semibold text-stone-700 mb-1">Material Kayu</label>
+                        <input type="text" name="material" value="Kayu Jati Solid TPK Perhutani" class="w-full px-3 py-2 rounded-xl border border-stone-200">
+                    </div>
+                    <div>
+                        <label class="block font-semibold text-stone-700 mb-1">Ukuran (Dimensi)</label>
+                        <input type="text" name="dimensions" value="P 180 x L 90 x T 75 cm" class="w-full px-3 py-2 rounded-xl border border-stone-200">
+                    </div>
+                    <div>
+                        <label class="block font-semibold text-stone-700 mb-1">Finishing Warna</label>
+                        <input type="text" name="finishing" value="Natural Teak Melamine Doff" class="w-full px-3 py-2 rounded-xl border border-stone-200">
+                    </div>
+                    <div>
+                        <label class="block font-semibold text-stone-700 mb-1">URL Foto Produk *</label>
+                        <input type="url" name="image_url" required placeholder="https://images.unsplash.com/..." class="w-full px-3 py-2 rounded-xl border border-stone-200">
+                    </div>
+                    <div>
+                        <label class="block font-semibold text-stone-700 mb-1">Deskripsi Produk *</label>
+                        <textarea name="description" rows="3" required placeholder="Deskripsi keunggulan kayu..." class="w-full px-3 py-2 rounded-xl border border-stone-200"></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-amber-800 hover:bg-amber-900 text-white font-bold py-2.5 rounded-xl transition text-xs shadow">
+                        + Tambahkan Produk
+                    </button>
+                </form>
+            </div>
+
+            <!-- Tabel Produk (8 cols) -->
+            <div class="lg:col-span-8 bg-white rounded-3xl border border-stone-200 overflow-hidden shadow-sm">
+                <div class="p-6 border-b border-stone-100">
+                    <h3 class="font-bold text-sm text-stone-900">Katalog Produk Aktif</h3>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-xs">
+                        <thead class="bg-stone-100 text-stone-600 uppercase text-[10px] tracking-wider border-b border-stone-200">
+                            <tr>
+                                <th class="p-4">Foto &amp; Nama</th>
+                                <th class="p-4">Kategori</th>
+                                <th class="p-4">Harga</th>
+                                <th class="p-4">Stok</th>
+                                <th class="p-4 text-center">Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody id="products-table-body" class="divide-y divide-stone-100"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 3: CUSTOM REQUESTS -->
+        <div id="tab-custom-content" class="hidden bg-white rounded-3xl border border-stone-200 overflow-hidden shadow-sm">
+            <div class="p-6 border-b border-stone-100">
+                <h3 class="font-bold text-sm text-stone-900">Permintaan Custom Furniture dari Pelanggan</h3>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left text-xs">
+                    <thead class="bg-stone-100 text-stone-600 uppercase text-[10px] tracking-wider border-b border-stone-200">
+                        <tr>
+                            <th class="p-4">No. Tiket</th>
+                            <th class="p-4">Pelanggan</th>
+                            <th class="p-4">Jenis &amp; Kayu</th>
+                            <th class="p-4">Ukuran &amp; Budget</th>
+                            <th class="p-4">Deskripsi Permintaan</th>
+                            <th class="p-4 text-center">Kontak WA</th>
+                        </tr>
+                    </thead>
+                    <tbody id="custom-table-body" class="divide-y divide-stone-100"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Ubah Status Order -->
+    <div id="orderModal" class="hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 space-y-4 shadow-2xl">
+            <div class="flex justify-between items-center border-b border-stone-100 pb-3">
+                <h4 class="font-bold text-base text-stone-950">Update Status Pesanan</h4>
+                <button type="button" onclick="closeEditModal()" class="text-stone-400 hover:text-stone-900"><i data-lucide="x" class="w-5 h-5"></i></button>
+            </div>
+            <form id="update-order-form" class="space-y-4 text-xs">
+                <input type="hidden" id="modal_order_id">
+                
+                <div>
+                    <label class="block font-semibold text-stone-700 mb-1">Nomor Pesanan</label>
+                    <input type="text" id="modal_order_number" readonly class="w-full px-3 py-2 bg-stone-100 rounded-xl border border-stone-200 font-mono font-bold">
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block font-semibold text-stone-700 mb-1">Tahap Produksi 8-Step</label>
+                        <select id="modal_order_status" class="w-full px-3 py-2 rounded-xl border border-stone-200 font-semibold bg-white">
+                            <option value="PENDING">1. Pesanan Dibuat (PENDING)</option>
+                            <option value="CONFIRMED">2. Pesanan Dikonfirmasi (CONFIRMED)</option>
+                            <option value="PROCESSING">3. Sedang Diproses (PROCESSING)</option>
+                            <option value="PRODUCTION">4. Sedang Dibuat (PRODUCTION)</option>
+                            <option value="QUALITY_CHECK">5. Quality Check (QUALITY_CHECK)</option>
+                            <option value="READY_TO_SHIP">6. Siap Dikirim (READY_TO_SHIP)</option>
+                            <option value="SHIPPED">7. Dalam Pengiriman (SHIPPED)</option>
+                            <option value="COMPLETED">8. Pesanan Selesai (COMPLETED)</option>
+                            <option value="CANCELLED">Batal (CANCELLED)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block font-semibold text-stone-700 mb-1">Status Pembayaran</label>
+                        <select id="modal_payment_status" class="w-full px-3 py-2 rounded-xl border border-stone-200 font-semibold bg-white">
+                            <option value="UNPAID">Belum Dibayar (UNPAID)</option>
+                            <option value="DP">DP 50% Masuk (DP)</option>
+                            <option value="PAID">Lunas (PAID)</option>
+                            <option value="REFUNDED">Refund (REFUNDED)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block font-semibold text-stone-700 mb-1">Nomor Resi / Ekspedisi Truk</label>
+                    <input type="text" id="modal_tracking_number" placeholder="Contoh: RESI-JEPARA-88219" class="w-full px-3 py-2 rounded-xl border border-stone-200">
+                </div>
+
+                <div>
+                    <label class="block font-semibold text-stone-700 mb-1">Catatan Pengrajin (Terlihat oleh Pelanggan)</label>
+                    <textarea id="modal_admin_notes" rows="2" placeholder="Kayu sudah dirakit, saat ini masuk proses finishing melamine..." class="w-full px-3 py-2 rounded-xl border border-stone-200"></textarea>
+                </div>
+
+                <div class="pt-3 flex justify-end gap-2">
+                    <button type="button" onclick="closeEditModal()" class="px-4 py-2 rounded-xl border border-stone-200 text-stone-700 font-semibold">Batal</button>
+                    <button type="submit" class="px-5 py-2 rounded-xl bg-amber-800 hover:bg-amber-900 text-white font-bold">Simpan Perubahan</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="assets/js/api.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/admin.js"></script>
+</body>
+</html>

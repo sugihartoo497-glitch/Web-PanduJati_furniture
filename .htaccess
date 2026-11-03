@@ -1,0 +1,5 @@
+# Laragon Apache DirectoryIndex Configuration
+DirectoryIndex index.html index.php
+
+# Prevent directory listing
+Options -Indexes

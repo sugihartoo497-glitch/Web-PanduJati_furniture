@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Pemesanan Online - Pandu Jati Furniture</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        teak: {
+                            50: '#fdfbf7', 100: '#f7f2ea', 200: '#ede0cd', 300: '#dec6a6',
+                            400: '#cca578', 500: '#b8854f', 600: '#9e6d3e', 700: '#7f5433',
+                            800: '#68452d', 900: '#553927', 950: '#2f1e14',
+                        },
+                        amberwood: { 500: '#d97706', 600: '#b45309', 700: '#92400e' }
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .wood-texture {
+            background-color: #2f1e14;
+            background-image: radial-gradient(rgba(218, 165, 32, 0.08) 1px, transparent 0);
+            background-size: 24px 24px;
+        }
+    </style>
+</head>
+<body class="bg-teak-50 text-teak-950 font-sans antialiased flex flex-col min-h-screen">
+
+<div id="main-header"></div>
+
+<main class="flex-grow">
+    <!-- Header Banner -->
+    <div class="bg-teak-950 text-white py-12 wood-texture">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-2">
+            <span class="text-xs font-bold text-amberwood-400 uppercase tracking-widest">Sistem Transaksi Resmi</span>
+            <h1 class="font-serif text-3xl sm:text-4xl font-bold">Form Pemesanan Online</h1>
+            <p class="text-xs sm:text-sm text-teak-300 max-w-xl mx-auto font-light">
+                Setiap pesanan mendapatkan Nomor Order ID unik resmi yang dapat Anda lacak perkembangannya secara live.
+            </p>
+        </div>
+    </div>
+
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <!-- Error Box Alert -->
+        <div id="order-error-box" class="hidden mb-6 p-4 rounded-2xl bg-rose-50 border border-rose-200 text-rose-800 text-xs sm:text-sm"></div>
+
+        <!-- Success Container -->
+        <div id="order-success-container" class="hidden"></div>
+
+        <!-- Order Form Container -->
+        <div id="order-form-container">
+            <form id="order-form" class="bg-white rounded-3xl border border-teak-200/80 p-6 sm:p-10 shadow-sm space-y-8">
+                <!-- Section 1: Produk -->
+                <div>
+                    <h3 class="font-serif font-bold text-lg text-teak-950 border-b border-teak-100 pb-3 mb-4 flex items-center gap-2">
+                        <i data-lucide="package" class="w-5 h-5 text-amberwood-600"></i>
+                        1. Pilih Produk Furniture
+                    </h3>
+                    <div class="space-y-4 text-xs">
+                        <div>
+                            <label class="block font-semibold text-teak-800 mb-1.5">Pilih Produk *</label>
+                            <select name="product_id" id="product_select" required class="w-full px-4 py-3 rounded-2xl border border-teak-200 focus:outline-none focus:ring-2 focus:ring-amberwood-500 bg-white">
+                                <option value="">-- Pilih Produk dari Katalog --</option>
+                            </select>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block font-semibold text-teak-800 mb-1.5">Jumlah Unit *</label>
+                                <input type="number" name="quantity" id="quantity-input" min="1" max="50" value="1" required class="w-full px-4 py-3 rounded-2xl border border-teak-200 focus:outline-none focus:ring-2 focus:ring-amberwood-500">
+                            </div>
+                            <div>
+                                <label class="block font-semibold text-teak-800 mb-1.5">Pilihan Finishing Warna Kayu</label>
+                                <select name="finishing" class="w-full px-4 py-3 rounded-2xl border border-teak-200 focus:outline-none focus:ring-2 focus:ring-amberwood-500 bg-white">
+                                    <option value="Natural Teak Melamine Doff">Natural Teak Melamine Doff (Rekomendasi)</option>
+                                    <option value="Walnut Brown Matte">Walnut Brown Matte</option>
+                                    <option value="Salak Brown Gloss">Salak Brown Gloss</option>
+                                    <option value="Bleaching Modern Teak">Bleaching Modern Teak (Serat Muda)</option>
+                                    <option value="Duco Putih Kombinasi Natural">Duco Putih Kombinasi Natural</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 2: Data Pelanggan -->
+                <div>
+                    <h3 class="font-serif font-bold text-lg text-teak-950 border-b border-teak-100 pb-3 mb-4 flex items-center gap-2">
+                        <i data-lucide="user" class="w-5 h-5 text-amberwood-600"></i>
+                        2. Data Pemesan &amp; Kontak WhatsApp
+                    </h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+                        <div>
+                            <label class="block font-semibold text-teak-800 mb-1.5">Nama Lengkap *</label>
+                            <input type="text" name="customer_name" required placeholder="Contoh: Bpk. Bambang Sudirman" class="w-full px-4 py-3 rounded-2xl border border-teak-200 focus:outline-none focus:ring-2 focus:ring-amberwood-500">
+                        </div>
+                        <div>
+                            <label class="block font-semibold text-teak-800 mb-1.5">Nomor WhatsApp Aktif *</label>
+                            <input type="tel" name="customer_phone" required placeholder="Contoh: 081234567890" class="w-full px-4 py-3 rounded-2xl border border-teak-200 focus:outline-none focus:ring-2 focus:ring-amberwood-500">
+                        </div>
+                        <div class="sm:col-span-2">
+                            <label class="block font-semibold text-teak-800 mb-1.5">Alamat Email (Opsional)</label>
+                            <input type="email" name="customer_email" placeholder="bambang@gmail.com" class="w-full px-4 py-3 rounded-2xl border border-teak-200 focus:outline-none focus:ring-2 focus:ring-amberwood-500">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 3: Alamat Pengiriman -->
+                <div>
+                    <h3 class="font-serif font-bold text-lg text-teak-950 border-b border-teak-100 pb-3 mb-4 flex items-center gap-2">
+                        <i data-lucide="map-pin" class="w-5 h-5 text-amberwood-600"></i>
+                        3. Alamat Tujuan Pengiriman
+                    </h3>
+                    <div class="space-y-4 text-xs">
+                        <div>
+                            <label class="block font-semibold text-teak-800 mb-1.5">Alamat Lengkap (Nama Jalan, No. Rumah, RT/RW, Kelurahan, Kecamatan) *</label>
+                            <textarea name="address" required rows="2" placeholder="Jl. Kemang Raya No. 42, RT 02/05..." class="w-full px-4 py-3 rounded-2xl border border-teak-200 focus:outline-none focus:ring-2 focus:ring-amberwood-500"></textarea>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                            <div>
+                                <label class="block font-semibold text-teak-800 mb-1.5">Kota / Kabupaten *</label>
+                                <input type="text" name="city" required placeholder="Jakarta Selatan" class="w-full px-4 py-3 rounded-2xl border border-teak-200 focus:outline-none focus:ring-2 focus:ring-amberwood-500">
+                            </div>
+                            <div>
+                                <label class="block font-semibold text-teak-800 mb-1.5">Provinsi *</label>
+                                <input type="text" name="province" required placeholder="DKI Jakarta" class="w-full px-4 py-3 rounded-2xl border border-teak-200 focus:outline-none focus:ring-2 focus:ring-amberwood-500">
+                            </div>
+                            <div>
+                                <label class="block font-semibold text-teak-800 mb-1.5">Kode Pos</label>
+                                <input type="text" name="postal_code" placeholder="12730" class="w-full px-4 py-3 rounded-2xl border border-teak-200 focus:outline-none focus:ring-2 focus:ring-amberwood-500">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 4: Pengiriman & Pembayaran -->
+                <div>
+                    <h3 class="font-serif font-bold text-lg text-teak-950 border-b border-teak-100 pb-3 mb-4 flex items-center gap-2">
+                        <i data-lucide="truck" class="w-5 h-5 text-amberwood-600"></i>
+                        4. Ekspedisi Kargo &amp; Ketentuan Pembayaran
+                    </h3>
+                    <div class="space-y-4 text-xs">
+                        <div>
+                            <label class="block font-semibold text-teak-800 mb-1.5">Pilihan Pengiriman Kargo Jepara</label>
+                            <div class="space-y-2">
+                                <label class="flex items-center justify-between p-3.5 rounded-2xl border border-teak-200 hover:border-amberwood-500 cursor-pointer transition">
+                                    <div class="flex items-center gap-3">
+                                        <input type="radio" name="shipping_option" value="0" checked class="text-amberwood-600 focus:ring-amberwood-500">
+                                        <div>
+                                            <span class="font-semibold text-teak-900 block">Truk Ekspedisi Khusus Mebel Jepara (Jawa - Bali - Sumatera)</span>
+                                            <span class="text-teak-500 text-[11px]">2 - 5 Hari Kerja</span>
+                                        </div>
+                                    </div>
+                                    <span class="font-bold text-teak-950">Rp 250.000</span>
+                                </label>
+                                <label class="flex items-center justify-between p-3.5 rounded-2xl border border-teak-200 hover:border-amberwood-500 cursor-pointer transition">
+                                    <div class="flex items-center gap-3">
+                                        <input type="radio" name="shipping_option" value="1" class="text-amberwood-600 focus:ring-amberwood-500">
+                                        <div>
+                                            <span class="font-semibold text-teak-900 block">Kargo Darat/Laut + Peti Kayu Solid (Luar Pulau)</span>
+                                            <span class="text-teak-500 text-[11px]">5 - 10 Hari Kerja</span>
+                                        </div>
+                                    </div>
+                                    <span class="font-bold text-teak-950">Rp 450.000</span>
+                                </label>
+                                <label class="flex items-center justify-between p-3.5 rounded-2xl border border-teak-200 hover:border-amberwood-500 cursor-pointer transition">
+                                    <div class="flex items-center gap-3">
+                                        <input type="radio" name="shipping_option" value="2" class="text-amberwood-600 focus:ring-amberwood-500">
+                                        <div>
+                                            <span class="font-semibold text-teak-900 block">Ambil Sendiri di Workshop (Jepara)</span>
+                                            <span class="text-teak-500 text-[11px]">Sesuai kesepakatan</span>
+                                        </div>
+                                    </div>
+                                    <span class="font-bold text-teak-950">Gratis (Rp 0)</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                            <div>
+                                <label class="block font-semibold text-teak-800 mb-1.5">Metode / Termin Pembayaran</label>
+                                <select name="payment_term" class="w-full px-4 py-3 rounded-2xl border border-teak-200 focus:outline-none focus:ring-2 focus:ring-amberwood-500 bg-white">
+                                    <option value="Transfer Bank BCA (DP 50%)">Transfer Bank BCA (DP 50% Produksi Mulai)</option>
+                                    <option value="Transfer Bank Mandiri (DP 50%)">Transfer Bank Mandiri (DP 50%)</option>
+                                    <option value="Transfer Bank BRI (DP 50%)">Transfer Bank BRI (DP 50%)</option>
+                                    <option value="Transfer Lunas 100%">Pembayaran Lunas 100% di Awal</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block font-semibold text-teak-800 mb-1.5">Catatan Khusus Pesanan (Opsional)</label>
+                                <input type="text" name="customer_notes" placeholder="Contoh: Mohon dipilihkan serat kayu yang rapat..." class="w-full px-4 py-3 rounded-2xl border border-teak-200 focus:outline-none focus:ring-2 focus:ring-amberwood-500">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Live Price Calculation Box -->
+                <div class="bg-teak-50/70 p-5 rounded-2xl border border-teak-200 space-y-2 text-xs">
+                    <div class="flex justify-between text-teak-600">
+                        <span>Subtotal Produk:</span>
+                        <span id="calc-subtotal" class="font-semibold text-teak-900">Rp 0</span>
+                    </div>
+                    <div class="flex justify-between text-teak-600">
+                        <span>Ongkos Kirim Ekspedisi:</span>
+                        <span id="calc-shipping" class="font-semibold text-teak-900">Rp 250.000</span>
+                    </div>
+                    <div class="pt-2 border-t border-teak-200 flex justify-between text-sm font-bold text-teak-950">
+                        <span>Estimasi Total:</span>
+                        <span id="calc-total" class="text-amberwood-700 font-serif text-base">Rp 250.000</span>
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="pt-2">
+                    <button type="submit" class="w-full bg-teak-900 hover:bg-amberwood-600 text-white font-bold py-4 rounded-2xl text-center transition flex items-center justify-center gap-2 shadow-lg text-sm sm:text-base">
+                        <i data-lucide="check" class="w-5 h-5 text-amberwood-400"></i> Buat Pesanan Sekarang &amp; Dapatkan Nomor Pesanan Unik
+                    </button>
+                    <p class="text-[11px] text-teak-500 text-center mt-3">
+                        Dengan menekan tombol di atas, pesanan Anda akan dicatat dan Anda akan memperoleh nomor ID pesanan unik resmi.
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
+
+<div id="main-footer"></div>
+
+<script src="assets/js/api.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/pesanan.js"></script>
+</body>
+</html>

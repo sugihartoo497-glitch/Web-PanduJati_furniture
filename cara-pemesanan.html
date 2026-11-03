@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cara Pemesanan & Pembayaran - Pandu Jati Furniture</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        teak: {
+                            50: '#fdfbf7', 100: '#f7f2ea', 200: '#ede0cd', 300: '#dec6a6',
+                            400: '#cca578', 500: '#b8854f', 600: '#9e6d3e', 700: '#7f5433',
+                            800: '#68452d', 900: '#553927', 950: '#2f1e14',
+                        },
+                        amberwood: { 500: '#d97706', 600: '#b45309', 700: '#92400e' }
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .wood-texture {
+            background-color: #2f1e14;
+            background-image: radial-gradient(rgba(218, 165, 32, 0.08) 1px, transparent 0);
+            background-size: 24px 24px;
+        }
+    </style>
+</head>
+<body class="bg-teak-50 text-teak-950 font-sans antialiased flex flex-col min-h-screen">
+
+<div id="main-header"></div>
+
+<main class="flex-grow">
+    <!-- Header Banner -->
+    <div class="bg-teak-950 text-white py-14 wood-texture">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-3">
+            <span class="text-xs font-bold text-amberwood-400 uppercase tracking-widest">Panduan Pembelian Aman</span>
+            <h1 class="font-serif text-3xl sm:text-5xl font-bold">Cara Pemesanan Mebel Online</h1>
+            <p class="text-xs sm:text-sm text-teak-300 max-w-xl mx-auto font-light">
+                Alur belanja mebel yang jelas, transparan, dan aman bagi pelanggan di seluruh wilayah Indonesia.
+            </p>
+        </div>
+    </div>
+
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-14 space-y-12">
+        <div class="space-y-6">
+            <h2 class="font-serif text-2xl font-bold text-teak-950 border-b border-teak-200 pb-3">
+                6 Langkah Belanja Furniture di Pandu Jati
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-white p-6 rounded-3xl border border-teak-200/80 shadow-sm space-y-2">
+                    <span class="w-8 h-8 rounded-full bg-amberwood-100 text-amberwood-800 font-bold flex items-center justify-center text-xs">1</span>
+                    <h3 class="font-bold text-sm text-teak-950">Pilih Produk atau Custom Desain</h3>
+                    <p class="text-xs text-teak-600">Pilih dari katalog siap pesan kami atau kirimkan rancangan custom ukuran ruangan Anda melalui form Custom.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-3xl border border-teak-200/80 shadow-sm space-y-2">
+                    <span class="w-8 h-8 rounded-full bg-amberwood-100 text-amberwood-800 font-bold flex items-center justify-center text-xs">2</span>
+                    <h3 class="font-bold text-sm text-teak-950">Isi Form &amp; Dapatkan Order ID</h3>
+                    <p class="text-xs text-teak-600">Isi data alamat pengiriman lengkap. Sistem secara otomatis menerbitkan Nomor Pesanan unik (contoh: PJF-20261008-0001).</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-3xl border border-teak-200/80 shadow-sm space-y-2">
+                    <span class="w-8 h-8 rounded-full bg-amberwood-100 text-amberwood-800 font-bold flex items-center justify-center text-xs">3</span>
+                    <h3 class="font-bold text-sm text-teak-950">Pembayaran DP 50% Produksi</h3>
+                    <p class="text-xs text-teak-600">Lakukan pembayaran uang muka (DP) 50% ke salah satu rekening resmi kami untuk memulai pengerjaan kayu di bengkel.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-3xl border border-teak-200/80 shadow-sm space-y-2">
+                    <span class="w-8 h-8 rounded-full bg-amberwood-100 text-amberwood-800 font-bold flex items-center justify-center text-xs">4</span>
+                    <h3 class="font-bold text-sm text-teak-950">Lacak Perkembangan di Website</h3>
+                    <p class="text-xs text-teak-600">Pelanggan dapat memantau 8 tahap pengerjaan (kayu, rakit, finishing, QC) secara mandiri lewat halaman "Cek Pesanan".</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-3xl border border-teak-200/80 shadow-sm space-y-2">
+                    <span class="w-8 h-8 rounded-full bg-amberwood-100 text-amberwood-800 font-bold flex items-center justify-center text-xs">5</span>
+                    <h3 class="font-bold text-sm text-teak-950">Pelunasan &amp; Foto Hasil Akhir</h3>
+                    <p class="text-xs text-teak-600">Sebelum barang dinaikkan ke truk ekspedisi, kami mengirimkan dokumentasi foto dan video hasil akhir mebel yang telah lulus QC.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-3xl border border-teak-200/80 shadow-sm space-y-2">
+                    <span class="w-8 h-8 rounded-full bg-amberwood-100 text-amberwood-800 font-bold flex items-center justify-center text-xs">6</span>
+                    <h3 class="font-bold text-sm text-teak-950">Pengiriman Kargo Truk Jepara</h3>
+                    <p class="text-xs text-teak-600">Pesanan diantar langsung oleh supir kargo mebel pintu-ke-pintu dengan nomor resi dan kontak supir yang bisa dihubungi.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-teak-900 text-white rounded-3xl p-8 text-center space-y-4">
+            <h3 class="font-serif text-xl sm:text-2xl font-bold">Siap Mengisi Rumah Impian Anda?</h3>
+            <p class="text-xs sm:text-sm text-teak-300 max-w-md mx-auto">Konsultasikan segera furniture idaman Anda dengan tim spesialis pengrajin Jepara.</p>
+            <div class="pt-2 flex justify-center gap-3">
+                <a href="katalog.html" class="bg-amberwood-600 hover:bg-amberwood-500 text-white px-6 py-3 rounded-full text-xs font-semibold shadow">Buka Katalog Produk</a>
+                <a href="pesanan.html" class="bg-white/10 hover:bg-white/20 text-white px-6 py-3 rounded-full text-xs font-semibold border border-white/20">Mulai Pemesanan</a>
+            </div>
+        </div>
+    </div>
+</main>
+
+<div id="main-footer"></div>
+
+<script src="assets/js/api.js"></script>
+<script src="assets/js/app.js"></script>
+<script>PanduApp.init('cara-pesan');</script>
+</body>
+</html>
